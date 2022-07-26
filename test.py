@@ -3,7 +3,6 @@ import json
 from application import app
 
 def test_urls():
-	# Create a test client using the Flask application configured for testing
 	with app.test_client() as client:
  
 		response = client.get("/all")
@@ -20,7 +19,6 @@ def test_urls():
 
 
 def test_url_shortener():
-	# Create a test client using the Flask application configured for testing
 	with app.test_client() as client:
  
 		response = client.put("/", data={"data":"http://www.testurl.com"})
@@ -28,3 +26,10 @@ def test_url_shortener():
 		assert response.status_code == 200
 		response_2 = client.get("/"+response_json['url_id'])
 		assert response_2.status_code == 302
+
+
+def test_url_shortener_400():
+	with app.test_client() as client:
+ 
+		response = client.put("/", data={"data":""})
+		assert response.status_code == 400
