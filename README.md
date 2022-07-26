@@ -11,7 +11,6 @@ This repository is a project to create a url shortener in python using docker an
 
 ## Docker image
 First of all we are going to use docker to prepare the environment.
-edirect("http://www.example.com", code=302)
 This is the Dockerfile were we can see how to install python, pip and flask. The image base for the project is alpine linux in order to be small, simple and secure. Alpine Linux is a security-oriented, lightweight Linux distribution based on musl libc and busybox.
 ```sh
 FROM alpine:latest
